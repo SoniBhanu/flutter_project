@@ -4,6 +4,7 @@ import 'package:flutter_project/provider/dark_theme_provider.dart';
 import 'package:flutter_project/screens/home_screens.dart';
 import 'package:flutter_project/services/dark_theme_pref.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_project/services/btm_bar.dart';
 
 void main() {
   runApp(MyApp());
@@ -46,7 +47,7 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             theme: Styles.themeData(themeProvider.getDarkTheme, context),
-            home: HomeScreen());
+            home: BottomBarScreen());
       }),
     );
   }

@@ -1,8 +1,9 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project/provider/dark_theme_provider.dart';
+import 'package:flutter_project/services/btm_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,19 +17,20 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
     return Scaffold(
-        body: Center(
-      child: SwitchListTile(
-        title: Text('Theme'),
-        secondary: Icon(themeState.getDarkTheme
-            ? Icons.dark_mode_outlined
-            : Icons.light_mode_outlined),
-        onChanged: (bool value) {
-          setState(() {
-            themeState.setDarkTheme = value;
-          });
-        },
-        value: themeState.getDarkTheme,
+      body: Center(
+        child: SwitchListTile(
+          title: Text('Theme'),
+          secondary: Icon(themeState.getDarkTheme
+              ? Icons.dark_mode_outlined
+              : Icons.light_mode_outlined),
+          onChanged: (bool value) {
+            setState(() {
+              themeState.setDarkTheme = value;
+            });
+          },
+          value: themeState.getDarkTheme,
+        ),
       ),
-    ));
+    );
   }
 }
